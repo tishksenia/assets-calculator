@@ -1,17 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Currency } from 'shared';
+import { RootState } from 'app/config/store';
+import { Account } from '../config/types';
 
 type AccountsState = Account[];
-
-interface Account {
-    title: string;
-    amounts: Amount[];
-}
-
-interface Amount {
-    currency: Currency;
-    amount: number;
-}
 
 const initialState: AccountsState = [];
 
@@ -27,4 +18,5 @@ const accountsSlice = createSlice({
 
 const accountsReducer = accountsSlice.reducer;
 export const { addAccount } = accountsSlice.actions;
+export const accountsSelector = (state: RootState) => state.accounts;
 export { accountsReducer };
