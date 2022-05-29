@@ -1,5 +1,5 @@
-import React from 'react';
+import { Container } from 'widgets';
 
 export const Calculator = () => {
-    return <div>Calculator</div>;
+    return <Container>Calculator</Container>;
 };
