@@ -8,8 +8,9 @@ interface Props {
 
 export const AmountCard: FC<Props> = ({ amount: { amount, currency } }) => {
     return (
-        <div>
-            {amount} {mapCurrency(currency)}
-        </div>
+        <>
+            {amount}{' '}
+            <span className="font-medium">{mapCurrency(currency)}</span>
+        </>
     );
 };
