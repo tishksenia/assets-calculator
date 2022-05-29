@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { mapCurrency } from 'shared';
 import { Amount } from '../config/types';
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 export const AmountCard: FC<Props> = ({ amount: { amount, currency } }) => {
     return (
         <div>
-            {amount} {currency}
+            {amount} {mapCurrency(currency)}
         </div>
     );
 };
