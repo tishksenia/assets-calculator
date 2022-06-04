@@ -3,7 +3,7 @@ import { Label } from '../Label/Label';
 
 interface InputProps {
     label?: string;
-    error?: boolean;
+    error?: boolean | string;
     className?: string;
 }
 
@@ -32,9 +32,16 @@ export const Input = forwardRef<HTMLInputElement, Props>(
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none
-                        ${error ? 'border-red-400' : 'border-slate-200'}
+                        ${
+                            error
+                                ? 'border-red-300 placeholder-red-400 text-red-400 focus:border-red-400'
+                                : 'border-slate-200'
+                        }
                         ${className}`}
                 />
+                {error && (
+                    <span className="text-red-400 font-medium">{error}</span>
+                )}
             </Label>
         );
     }

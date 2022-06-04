@@ -1,12 +1,17 @@
 import { FC } from 'react';
-import { useFieldArray, useForm } from 'react-hook-form';
-import { Input } from 'shared';
+import { useFieldArray, useForm, useFormState } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useAppDispatch } from 'app/config/hooks';
 import { Account } from 'entities/AccountCard/config/types';
 import { addAccount } from 'entities/AccountCard/model/accountsSlice';
 
-import { defaultAmountValue, defaultValues, FormValues } from '../config';
+import {
+    defaultAmountValue,
+    defaultValues,
+    FormValues,
+    validationSchema,
+} from '../config';
 import { addAmountIcon } from './Icons';
 import { AmountField } from './AmountField';
 import { Controls } from './Controls';
@@ -20,6 +25,7 @@ export const Form: FC<Props> = ({ isEditing, cancel }) => {
     const dispatch = useAppDispatch();
     const formInstance = useForm<FormValues>({
         defaultValues,
+        resolver: yupResolver(validationSchema),
     });
     const { control, register, handleSubmit, reset } = formInstance;
     const fieldArrayInstance = useFieldArray({
@@ -27,6 +33,7 @@ export const Form: FC<Props> = ({ isEditing, cancel }) => {
         name: 'amounts',
     });
     const { fields, append } = fieldArrayInstance;
+    const { errors } = useFormState({ control });
 
     const onSubmit = (values: FormValues) => {
         dispatch(addAccount(values as Account));
@@ -45,6 +52,7 @@ export const Form: FC<Props> = ({ isEditing, cancel }) => {
             <Input
                 label="Title"
                 placeholder="Enter title of the account"
+                error={errors.title?.message}
                 {...register('title')}
             />
             <div className="mt-4">

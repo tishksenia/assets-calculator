@@ -4,6 +4,7 @@ import {
     FieldArrayWithId,
     UseFieldArrayReturn,
     UseFormReturn,
+    useFormState,
 } from 'react-hook-form';
 
 import { mapCurrency, Currency, Input, Select } from 'shared';
@@ -13,6 +14,7 @@ import { cancelIcon } from './Icons';
 
 interface Props {
     amountField: {
+        index: number;
         field: FieldArrayWithId<FormValues, 'amounts', 'id'>;
         index: number;
         formInstance: UseFormReturn<FormValues>;
@@ -25,6 +27,7 @@ export const AmountField: FC<Props> = ({
 }) => {
     const { control, register } = formInstance;
     const { remove } = fieldArrayInstance;
+    const { errors } = useFormState({ control });
     const currencyOptions = useMemo(
         () =>
             currencyList.map((code) => ({
@@ -39,9 +42,17 @@ export const AmountField: FC<Props> = ({
             className="flex relative lg:flex-row flex-col justify-between mb-4"
             key={field.id}
         >
-            <Input label="Amount" {...register(`amounts.${index}.amount`)} />
+            <Input
+                label="Amount"
+                {...register(`amounts.${index}.amount`)}
+                error={
+                    errors &&
+                    errors.amounts &&
+                    errors?.amounts[index].amount?.message
+                }
+            />
             <div className="lg:w-5 w-0" />
-            <div className="flex">
+            <div className="flex items-start">
                 <Controller
                     render={({ field }) => (
                         <Select
