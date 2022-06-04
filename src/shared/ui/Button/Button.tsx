@@ -12,21 +12,23 @@ export const Button: FC<
             HTMLButtonElement
         >
 > = ({ className, icon, children, ...rest }) => {
-    const iconClassName = `bg-transparent border py-2 px-3
-                        hover:bg-slate-100`;
+    const iconClassName = `bg-transparent hover:bg-slate-100
+                           border
+                           py-2 px-3`;
+    const defaultClassName = `bg-blue-800 hover:bg-gray-800
+                              py-2 px-8`;
     return (
         <button
             {...rest}
-            className={`bg-blue-800
-                        hover:bg-gray-800
+            className={`
                         font-semibold
                         duration-300
                         rounded-md
-                        py-2 px-8
                         text-white
                         shadow  ${className || ''} ${
-                icon ? iconClassName : ''
-            }`}
+                icon ? iconClassName : defaultClassName
+            }
+            `}
         >
             {children}
         </button>
