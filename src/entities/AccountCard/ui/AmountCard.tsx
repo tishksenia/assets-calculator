@@ -11,7 +11,7 @@ export const AmountCard: FC<Props> = ({ amount: { amount, currency } }) => {
         <div
             className="border border-gray-300 rounded-lg
                         py-1 px-3
-                        mr-1
+                        mr-1 mb-1
                         inline-block
                         font-thin
                         bg-gray-100
