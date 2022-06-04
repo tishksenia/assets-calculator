@@ -7,16 +7,15 @@ import {
     useFormState,
 } from 'react-hook-form';
 
-import { mapCurrency, Currency, Input, Select } from 'shared';
+import { mapCurrency, Currency, Input, Select, Button } from 'shared';
 
 import { currencyList, FormValues } from '../config';
-import { cancelIcon } from './Icons';
+import { removeIcon } from './Icons';
 
 interface Props {
     amountField: {
         index: number;
         field: FieldArrayWithId<FormValues, 'amounts', 'id'>;
-        index: number;
         formInstance: UseFormReturn<FormValues>;
         fieldArrayInstance: UseFieldArrayReturn<FormValues, 'amounts', 'id'>;
     };
@@ -65,15 +64,14 @@ export const AmountField: FC<Props> = ({
                     control={control}
                     name={`amounts.${index}.currency`}
                 />
-                <button
+                <Button
                     onClick={() => remove(index)}
                     type="button"
-                    className="flex items-end
-                               opacity-40
-                               absolute -right-10 bottom-1"
+                    className="relative top-6 ml-3"
+                    icon
                 >
-                    {cancelIcon}
-                </button>
+                    {removeIcon}
+                </Button>
             </div>
         </div>
     );

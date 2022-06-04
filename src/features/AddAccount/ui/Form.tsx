@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useFieldArray, useForm, useFormState } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { Button, Input } from 'shared';
 import { useAppDispatch } from 'app/config/hooks';
 import { Account } from 'entities/AccountCard/config/types';
 import { addAccount } from 'entities/AccountCard/model/accountsSlice';
@@ -46,8 +47,8 @@ export const Form: FC<Props> = ({ isEditing, cancel }) => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex
                        flex-col
-                       w-11/12
-                       lg:w-1/2"
+                       w-full
+                       lg:w-4/5"
         >
             <Input
                 label="Title"
@@ -68,9 +69,14 @@ export const Form: FC<Props> = ({ isEditing, cancel }) => {
                     />
                 ))}
             </div>
-            <button onClick={() => append(defaultAmountValue)} type="button">
+            <Button
+                icon
+                onClick={() => append(defaultAmountValue)}
+                type="button"
+                className="flex-shrink self-start mb-4"
+            >
                 {addAmountIcon}
-            </button>
+            </Button>
             <Controls
                 cancel={() => {
                     cancel();

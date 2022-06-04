@@ -1,11 +1,11 @@
 const addAccountIcon = (
     <svg
-        className="h-8 w-8 text-red-500"
+        className="h-8 w-8 text-blue-500"
         width="24"
         height="24"
         viewBox="0 0 24 24"
         strokeWidth="2"
-        stroke="#0084ff"
+        stroke="currentColor"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -19,12 +19,12 @@ const addAccountIcon = (
 
 const cancelIcon = (
     <svg
-        className="h-8 w-8 text-red-500"
+        className="h-4 w-4 text-gray-500"
         width="24"
         height="24"
         viewBox="0 0 24 24"
         strokeWidth="2"
-        stroke="black"
+        stroke="currentColor"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -35,14 +35,35 @@ const cancelIcon = (
     </svg>
 );
 
-const addAmountIcon = (
+const removeIcon = (
     <svg
-        className="h-8 w-8 text-red-500"
+        className="h-5 w-5 text-gray-500"
         width="24"
         height="24"
         viewBox="0 0 24 24"
         strokeWidth="2"
-        stroke="black"
+        stroke="currentColor"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path stroke="none" d="M0 0h24v24H0z" />{' '}
+        <line x1="4" y1="7" x2="20" y2="7" />{' '}
+        <line x1="10" y1="11" x2="10" y2="17" />{' '}
+        <line x1="14" y1="11" x2="14" y2="17" />{' '}
+        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />{' '}
+        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+    </svg>
+);
+
+const addAmountIcon = (
+    <svg
+        className="h-6 w-6 text-gray-500"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        strokeWidth="2"
+        stroke="currentColor"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -53,4 +74,4 @@ const addAmountIcon = (
     </svg>
 );
 
-export { addAccountIcon, cancelIcon, addAmountIcon };
+export { addAccountIcon, cancelIcon, addAmountIcon, removeIcon };
