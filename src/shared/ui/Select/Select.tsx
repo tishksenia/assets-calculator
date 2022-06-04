@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Label } from '../Label/Label';
 
 interface Option {
@@ -13,6 +13,8 @@ interface Props {
 export const Select: FC<
     Props & Omit<React.HTMLProps<HTMLSelectElement>, 'selected'>
 > = ({ options, label, ...rest }) => {
+    const [hasFocus, setFocus] = useState<boolean>(false);
+
     return (
         <Label>
             {label}
@@ -32,9 +34,20 @@ export const Select: FC<
                             ease-in-out
                             cursor-pointer
                             m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none"
-                aria-label="Default select example"
+                            focus:text-gray-700  focus:border-blue-400 focus:outline-none"
                 {...rest}
+                onFocus={(event) => {
+                    rest.onFocus && rest.onFocus(event);
+                    setFocus(true);
+                }}
+                onBlur={(event) => {
+                    rest.onBlur && rest.onBlur(event);
+                    setFocus(false);
+                }}
+                onChange={(event) => {
+                    rest.onChange && rest.onChange(event);
+                    setFocus(false);
+                }}
             >
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -42,6 +55,24 @@ export const Select: FC<
                     </option>
                 ))}
             </select>
+            <div className="absolute top-9 right-2 pointer-events-none">
+                <svg
+                    className={`h-4 w-4 text-gray-600 ${
+                        hasFocus ? 'rotate-180' : ''
+                    }`}
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </div>
         </Label>
     );
 };
