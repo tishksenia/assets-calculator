@@ -10,7 +10,7 @@ export const AddAccountForm: FC = () => {
     return (
         <div>
             <Form isEditing={Boolean(isEditing)} cancel={toggle} />
-            {!isEditing && <button onClick={toggle}>{addAccountIcon}</button>}
+            {!isEditing && <button onClick={toggle} data-testid="toggle-add-account">{addAccountIcon}</button>}
         </div>
     );
 };

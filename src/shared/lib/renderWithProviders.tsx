@@ -1,4 +1,4 @@
-import { FC, JSXElementConstructor, PropsWithChildren, ReactElement, ReactNode } from "react";
+import { FC, JSXElementConstructor, PropsWithChildren, ReactElement } from "react";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store as appStore } from 'app/config/store'
