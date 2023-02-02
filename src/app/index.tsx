@@ -1,11 +1,13 @@
 import { Calculator } from 'pages';
+import { Provider } from 'react-redux';
+import { store } from './config/store';
 import './index.scss';
 
 function App() {
     return (
-        <div>
+        <Provider store={store}>
             <Calculator />
-        </div>
+        </Provider>
     );
 }
 
