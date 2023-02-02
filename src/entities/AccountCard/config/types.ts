@@ -7,7 +7,7 @@ interface Account {
 
 interface Amount {
     currency: Currency;
-    amount: number;
+    amount: string;
 }
 
 export type { Account, Amount };

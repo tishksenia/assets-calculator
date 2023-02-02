@@ -8,9 +8,11 @@ export const AccountsList = () => {
     return (
         <div>
             <h1 className="text-3xl font-bold pb-10">Accounts list</h1>
-            {items.map((item, index) => (
-                <AccountCard item={item} key={index} />
-            ))}
+            <div className="flex flex-wrap shrink-0">
+                {items.map((item, index) => (
+                    <AccountCard item={item} key={index} />
+                ))}
+            </div>
         </div>
     );
 };
