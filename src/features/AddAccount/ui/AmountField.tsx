@@ -47,7 +47,7 @@ export const AmountField: FC<Props> = ({
                 error={
                     errors &&
                     errors.amounts &&
-                    errors?.amounts[index].amount?.message
+                    errors?.amounts[index]?.amount?.message
                 }
             />
             <div className="lg:w-5 w-0" />
