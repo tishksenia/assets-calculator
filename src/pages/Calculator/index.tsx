@@ -1,5 +1,12 @@
-import React from 'react';
+import { AccountsList } from 'entities/AccountCard';
+import { AddAccountForm } from 'features/AddAccount';
+import { Container } from 'widgets';
 
 export const Calculator = () => {
-    return <div>Calculator</div>;
+    return (
+        <Container>
+            <AccountsList />
+            <AddAccountForm />
+        </Container>
+    );
 };
