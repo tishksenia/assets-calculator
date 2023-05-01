@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from 'app/config';
-
-import { Account } from '../config';
+import { Account } from 'shared';
 
 type AccountsState = Account[];
 

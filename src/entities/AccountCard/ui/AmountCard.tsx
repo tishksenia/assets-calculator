@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { mapCurrency } from 'shared';
-import { Amount } from '../config/types';
+import { mapCurrency, Amount } from 'shared';
 
 interface Props {
     amount: Amount;
