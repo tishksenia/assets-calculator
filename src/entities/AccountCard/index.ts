@@ -1,2 +1,3 @@
-export { accountsReducer } from './model/accountsSlice';
-export { AccountsList } from './ui/AccountsList';
+export { accountsReducer, addAccount } from './model';
+export type { AccountsState } from './model';
+export { AccountsList } from './ui';

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Label } from '../Label/Label';
+import { Label } from '../Label';
 
 interface InputProps {
     label?: string;

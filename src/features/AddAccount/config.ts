@@ -1,5 +1,4 @@
-import { Account, Amount } from 'entities/AccountCard/config/types';
-import { Currency, validationMessages } from 'shared';
+import { Currency, validationMessages, Account, Amount } from 'shared';
 import { array, number, object, string } from 'yup';
 
 const defaultValues: Account = {
