@@ -1,4 +1,4 @@
-import { Account, Amount } from 'entities/AccountCard/config/types';
+import { Account, Amount } from 'entities/AccountCard';
 import { Currency, validationMessages } from 'shared';
 import { array, number, object, string } from 'yup';
 
