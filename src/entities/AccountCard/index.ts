@@ -1,3 +1,3 @@
-export { accountsReducer } from './model';
-export { AccountsList } from './ui';
+export { accountsReducer, addAccount } from './model';
 export type { AccountsState } from './model';
+export { AccountsList } from './ui';
