@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from 'app/config/store';
-import { Account } from '../config/types';
+
+import { RootState } from 'app/config';
+import { Account } from 'shared';
 
 type AccountsState = Account[];
 
@@ -20,3 +21,4 @@ const accountsReducer = accountsSlice.reducer;
 export const { addAccount } = accountsSlice.actions;
 export const accountsSelector = (state: RootState) => state.accounts;
 export { accountsReducer };
+export type { Account, AccountsState };

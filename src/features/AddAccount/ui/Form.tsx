@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { useFieldArray, useForm, useFormState } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Button, Input } from 'shared';
-import { useAppDispatch } from 'app/config/hooks';
-import { Account } from 'entities/AccountCard/config/types';
-import { addAccount } from 'entities/AccountCard/model/accountsSlice';
+import { Button, Input, Account } from 'shared';
+import { useAppDispatch } from 'app/config';
+
+import { addAccount } from 'entities/AccountCard';
 
 import {
     defaultAmountValue,

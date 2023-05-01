@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
-import { Account } from '../config/types';
+import { FC } from 'react';
+
+import { Account } from 'shared';
+
 import { AmountCard } from './AmountCard';
 
 interface Props {

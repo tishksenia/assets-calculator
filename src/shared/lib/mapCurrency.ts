@@ -11,5 +11,5 @@ const map = {
 };
 
 export const mapCurrency = (currency: Currency) => {
-    return map[currency] || currency;
+    return map[currency] || currency || '';
 };
